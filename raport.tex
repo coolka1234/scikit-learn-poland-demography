@@ -2,33 +2,46 @@
 
 \usepackage{sectsty}
 \usepackage{graphicx}
+\usepackage[T1]{fontenc}
 
 % Margins
-\topmargin=-0.45in
+\topmargin=-0.5in
 \evensidemargin=0in
 \oddsidemargin=0in
 \textwidth=6.5in
 \textheight=9.0in
 \headsep=0.25in
 
-\title{ Poland population prediction}
-\author{ Krzysztof Kulka }
+\title{ Analiza możliwości wykorzystania modelów regresji do przewidywania liczby ludności w Polsce}
+\author{ Krzysztof Kulka
+        \\ 272667@student.pwr.edu.pl \\ MSiD Lab Wtorek 9.15 NP }
 \date{\today}
+
+\renewcommand{\contentsname}{Spis treści}
 
 \begin{document}
 \maketitle	
 \pagebreak
 
 % Optional TOC
-% \tableofcontents
-% \pagebreak
+\tableofcontents
+ \pagebreak
 
 %--Paper--
 
-\section{Section 1}
+\section{Wstęp}
 
-Lorem Impsum
-
+Problemem projektu jest analiza możliwości modelów regresji liniowej do przewidywania liczby ludności w Polsce. W tym celu wykorzystane zostaną dane historyczne dotyczące demografi, ludności, migracji oraz innych czynników wpływających na liczebność populacji.
+Przedstawiona analiza ma na celu rozstrzygnięcie czy model regresji liniowej jest odpowiedni do przewidywania liczby ludności w Polsce, jakie modele jeśli tak, sprawdzają się do tego najlepiej oraz jakie czynniki mają największy wpływ na liczebność populacji.
+Analizie zostaną poddane następujące czyynniki:
+\begin{itemize}
+\item Oczekiwana długość życia
+\item Imigracja do kraju
+\item Wskaźnik dzietności
+\item Wskaźnik urbanizacji
+\item Historyczna populacja
+\item Wskaźnik zmiany populacji na przestrzeni ostatnich 5 lat
+\end{itemize}
 
 \pagebreak
 \section{Section 2}

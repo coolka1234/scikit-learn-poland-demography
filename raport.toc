@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}Wstęp}{3}{}%
+\contentsline {section}{\numberline {2}Section 2}{4}{}%
