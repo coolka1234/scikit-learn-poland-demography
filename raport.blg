@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: bibliografia.bib
 Warning--to sort, need author or key in wbd
 Warning--to sort, need author or key in zpe
-You've used 2 entries,
+You've used 3 entries,
             2118 wiz_defined-function locations,
-            503 strings with 4243 characters,
-and the built_in function-call counts, 338 in all, are:
-= -- 30
-> -- 2
+            507 strings with 4325 characters,
+and the built_in function-call counts, 542 in all, are:
+= -- 49
+> -- 9
 < -- 0
-+ -- 2
-- -- 0
-* -- 12
-:= -- 43
-add.period$ -- 4
-call.type$ -- 2
-change.case$ -- 6
++ -- 5
+- -- 2
+* -- 17
+:= -- 77
+add.period$ -- 7
+call.type$ -- 3
+change.case$ -- 10
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 14
-empty$ -- 47
-format.name$ -- 0
-if$ -- 81
+cite$ -- 5
+duplicate$ -- 21
+empty$ -- 69
+format.name$ -- 2
+if$ -- 126
 int.to.chr$ -- 0
-int.to.str$ -- 2
+int.to.str$ -- 3
 missing$ -- 0
-newline$ -- 11
-num.names$ -- 0
-pop$ -- 16
+newline$ -- 16
+num.names$ -- 2
+pop$ -- 24
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 7
 quote$ -- 0
-skip$ -- 16
+skip$ -- 24
 stack$ -- 0
-substring$ -- 10
-swap$ -- 2
+substring$ -- 15
+swap$ -- 3
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 12
 warning$ -- 2
-while$ -- 0
-width$ -- 3
-write$ -- 16
+while$ -- 2
+width$ -- 4
+write$ -- 25
 (There were 2 warnings)

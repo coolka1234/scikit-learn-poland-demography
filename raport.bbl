@@ -8,4 +8,9 @@
 {Zintegrowana Platforma Edukacyjna Ministerstwa Edukacji Narodowej} urbanizacja w polsce.
 \newblock \url{https://zpe.gov.pl/a/zroznicowanie-poziomu-urbanizacji-w-polsce/D19MUchJD}.
 
+\bibitem{pp}
+Fabian Clemente.
+\newblock {YData-Profiling}.
+\newblock \url{https://github.com/ydataai/ydata-profiling}.
+
 \end{thebibliography}
