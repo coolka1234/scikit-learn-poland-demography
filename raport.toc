@@ -1,2 +1,2 @@
-\contentsline {section}{\numberline {1}Wstęp}{3}{}%
-\contentsline {section}{\numberline {2}Zbiór danych i jego analiza}{3}{}%
+\contentsline {section}{\numberline {1}Wstęp}{3}{section.1}%
+\contentsline {section}{\numberline {2}Zbiór danych i jego analiza}{3}{section.2}%
