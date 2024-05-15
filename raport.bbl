@@ -1,5 +1,9 @@
 \begin{thebibliography}{1}
 
+\bibitem{wpd}
+{WebPlotDigitizer}.
+\newblock \url{https://automeris.io/}.
+
 \bibitem{wbd}
 {World Bank Data} poland.
 \newblock \url{https://www.worldbank.org/pl/country/poland}.
