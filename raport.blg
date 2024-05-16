@@ -6,45 +6,46 @@ Database file #1: bibliografia.bib
 Warning--to sort, need author or key in wbd
 Warning--to sort, need author or key in zpe
 Warning--to sort, need author or key in wpd
-You've used 4 entries,
+Warning--to sort, need author or key in gf24
+You've used 5 entries,
             2118 wiz_defined-function locations,
-            510 strings with 4373 characters,
-and the built_in function-call counts, 701 in all, are:
-= -- 64
-> -- 10
+            513 strings with 4486 characters,
+and the built_in function-call counts, 860 in all, are:
+= -- 79
+> -- 11
 < -- 0
-+ -- 6
++ -- 7
 - -- 2
-* -- 22
-:= -- 94
-add.period$ -- 9
-call.type$ -- 4
-change.case$ -- 13
+* -- 27
+:= -- 111
+add.period$ -- 11
+call.type$ -- 5
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 28
-empty$ -- 92
+cite$ -- 9
+duplicate$ -- 35
+empty$ -- 115
 format.name$ -- 2
-if$ -- 166
+if$ -- 206
 int.to.chr$ -- 0
-int.to.str$ -- 4
+int.to.str$ -- 5
 missing$ -- 0
-newline$ -- 20
+newline$ -- 24
 num.names$ -- 2
-pop$ -- 32
+pop$ -- 40
 preamble$ -- 1
-purify$ -- 9
+purify$ -- 11
 quote$ -- 0
-skip$ -- 32
+skip$ -- 40
 stack$ -- 0
-substring$ -- 20
-swap$ -- 4
+substring$ -- 25
+swap$ -- 5
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
-warning$ -- 3
+type$ -- 20
+warning$ -- 4
 while$ -- 2
-width$ -- 5
-write$ -- 32
-(There were 3 warnings)
+width$ -- 6
+write$ -- 39
+(There were 4 warnings)

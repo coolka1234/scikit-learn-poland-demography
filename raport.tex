@@ -47,9 +47,9 @@ Zbadane zaś zostaną następujące modele regresji:
 \begin{itemize}
 \item Regresja liniowa
 \item Regresja typu Ridge
-\item Regresja Decisions Trees
-\item Regresja Random Forest
 \item Regresja Lasso
+\item Regresja Elastic Net
+\item Regresja Bayesian Ridge
 \end{itemize}
 \section{Zbiór danych i jego analiza}
 \subsection*{Opis zbioru danych}
@@ -186,8 +186,8 @@ Do analizy eksploracyjnej danych wykorzystano bibliotekę pandas-profiling\cite{
         \caption{Macierz korelacji}
 \end{figure}
         Z racji ręcznego dobioru danych i ich selekcji, analiza wykazała bardzo dużą korelację (oraz antykorelacje) pomiędzy wybranymi współczynnikami.
-        Pojawia się bardzo zaskakująca, przecząca logice korelacja, pomiędzy współczynnikiem dzietności a populacją -0.763.
-        Prawdopodobnie wynika ona z tego że przez większość badanego okresu, współczynnik był nadal na bardzo wysokim poziomie, więc mimo że nie malał, to populacja stale się zwiększała.
+        Pojawia się bardzo zaskakująca, przecząca logice korelacja, pomiędzy współczynnikiem dzietności a populacją wynosząca -0.763.
+        Prawdopodobnie wynika ona z tego że przez większość badanego okresu, współczynnik był nadal na bardzo wysokim poziomie, więc mimo że malał, to populacja stale się zwiększała.
         Analogicznie zaskakuje negatywna korelacja migracji z populacją, co jest zaskakujące, ponieważ zgodnie z intuicją, imigracja powinna zwiększać populację.
         Prawdopodobnie wynika to z faktu, że dane dotyczące imigracji są niewielkie, co powoduje że słabo, choć wciąż, przekładają się na polską populację.
         Jeśli zaś chodzi o spodziewane korelacje, należy szczególnie zwrócić uwagę:
@@ -206,12 +206,89 @@ Aby więc uzyskać dane, i móc zamienić je w data frame, użyto następującyc
 \begin{itemize}
 \item Scraping obrazka za pomocą skryptu pythonowego
 \item Następnie przekazanie zescrapowanego obrazka do zewnętrznego programu WebPlotDigitizer\cite{wpd}
-\item Finalnie, z racji niedoskonałości otrzymanego wyniku (m.in. potraktowanie lat jako liczb rzeczywistych, a nie całkowitych), dane zostały poprawione za pomocą kolejnego skryptu napisanego w pythonie. 
+\item Dalej, z racji niedoskonałości otrzymanego wyniku (m.in. potraktowanie lat jako liczb rzeczywistych, a nie całkowitych), dane zostały poprawione za pomocą kolejnego skryptu napisanego w pythonie.
+\item Finalnie, ponieważ dane sięgały jedynie 2012 roku, dodano za pomocą skryptu dane z lat 2013-2022 korzystając ze witryny Gegrafia24.pl\cite{gf24}. 
 \end{itemize}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{urbanizacjawPolsce.png}
+        \caption{Zescrapowany graf urbanizacji w Polsce}
+\end{figure}
 \subsubsection*{Eliminacja danych odstających}
 Podczas przeglądania grafów reprezentujących zebrane dane, nie trudno było zauważyć że dane po 2019 roku są znacznie odstające od reszty.
 Oczywistym jest że w 2020 roku, z racji pandemii, wiele wskaźników uległo zmianie, co sprawia że dane z tego roku są nieprzydatne do analizy.
 Z tego powodu, dane z 2020 roku wzwyż zostały usunięte.
+\section{Dobór metryk oceny}
+Zanim przystąpimy do analizy modeli, należy zdefiniować metryki, które pozwolą nam ocenić ich skuteczność.
+Dobór odpowiednich metryk jest kluczowy, ponieważ pozwala na obiektywną ocenę modeli, oraz porównanie ich ze sobą.
+W przypadku regresji, najczęściej stosowanymi metrykami są:
+\begin{itemize}
+\item Mean Squared Error (MSE) - średni błąd kwadratowy
+\item Mean Absolute Percentage Error (MAPE) - średni błąd procentowy bezwzględny
+\item R2 Score - współczynnik determinacji
+\end{itemize}
+\subsection*{Mean Squared Error}
+MSE jest jedną z najczęściej stosowanych metryk w regresji. Oblicza ona średni błąd kwadratowy pomiędzy wartościami przewidywanymi przez model, a wartościami rzeczywistymi.
+\begin{equation}
+MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y_i})^2
+\end{equation}
+\subsection*{Mean Absolute Percentage Error}
+MAPE jest metryką, która mierzy średni błąd procentowy bezwzględny pomiędzy wartościami przewidywanymi przez model, a wartościami rzeczywistymi.
+\begin{equation}
+MAPE = \frac{1}{n} \sum_{i=1}^{n} \frac{|y_i - \hat{y_i}|}{y_i}
+\end{equation}
+\subsection*{R2 Score}
+R2 Score jest metryką, która mierzy jak dobrze model przewiduje dane w porównaniu do średniej wartości. Wartość R2 Score może przyjmować wartości od $-\infty$
+  do 1, gdzie 1 oznacza idealne dopasowanie modelu.
+\begin{equation}
+R2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+\end{equation}
+\section{Analiza modeli}
+\subsection*{Dla podziału 80/20}
+Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-2008, a testowany będzie na danych z lat 2009-2019.
+\subsubsection*{Regresja liniowa}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/linear.png}
+        \caption{Regresja liniowa}
+\end{figure}
+\subsubsection*{Regresja Ridge}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/ridge.png}
+        \caption{Regresja Ridge}
+\end{figure}
+\subsubsection*{Regresja Lasso}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/lasso.png}
+        \caption{Regresja Lasso}
+\end{figure}
+\subsubsection*{Regresja Elastic Net}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/elastic_net.png}
+        \caption{Regresja Elastic Net}
+\end{figure}
+\subsubsection*{Regresja Bayesian Ridge}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/bayesian_ridge.png}
+        \caption{Regresja Bayesian Ridge}
+\end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Linear Regression & 1.07e+13 & 0.03 & 0.99 \\ \hline
+        Ridge Regression & 1.07e+13 & 0.03 & 0.99 \\ \hline
+        Lasso Regression & 1.07e+13 & 0.03 & 0.99 \\ \hline
+        Elastic Net & 1.07e+13 & 0.03 & 0.99 \\ \hline
+        Bayesian Ridge & 1.07e+13 & 0.03 & 0.99 \\ \hline
+        \end{tabular}
+        \caption{Wyniki dla podziału 80/20}
+        \end{table}
 \bibliographystyle{plain}
 \bibliography{bibliografia}
 \end{document}
