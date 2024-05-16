@@ -7,45 +7,47 @@ Warning--to sort, need author or key in wbd
 Warning--to sort, need author or key in zpe
 Warning--to sort, need author or key in wpd
 Warning--to sort, need author or key in gf24
-You've used 5 entries,
+Warning--empty journal in dop
+Warning--empty year in dop
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            513 strings with 4486 characters,
-and the built_in function-call counts, 860 in all, are:
-= -- 79
-> -- 11
+            516 strings with 4644 characters,
+and the built_in function-call counts, 1059 in all, are:
+= -- 96
+> -- 18
 < -- 0
-+ -- 7
-- -- 2
-* -- 27
-:= -- 111
-add.period$ -- 11
-call.type$ -- 5
-change.case$ -- 16
++ -- 10
+- -- 4
+* -- 38
+:= -- 147
+add.period$ -- 13
+call.type$ -- 6
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 35
-empty$ -- 115
-format.name$ -- 2
-if$ -- 206
+cite$ -- 12
+duplicate$ -- 45
+empty$ -- 132
+format.name$ -- 4
+if$ -- 244
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 0
-newline$ -- 24
-num.names$ -- 2
-pop$ -- 40
+int.to.str$ -- 6
+missing$ -- 1
+newline$ -- 28
+num.names$ -- 4
+pop$ -- 48
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 14
 quote$ -- 0
-skip$ -- 40
+skip$ -- 46
 stack$ -- 0
-substring$ -- 25
+substring$ -- 30
 swap$ -- 5
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
-warning$ -- 4
-while$ -- 2
-width$ -- 6
-write$ -- 39
-(There were 4 warnings)
+type$ -- 24
+warning$ -- 6
+while$ -- 4
+width$ -- 7
+write$ -- 46
+(There were 6 warnings)

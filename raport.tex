@@ -243,6 +243,9 @@ R2 Score jest metryką, która mierzy jak dobrze model przewiduje dane w porówn
 \begin{equation}
 R2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
 \end{equation}
+\subsection*{Analiza metryk}
+Metryki zostały wybrane tak, aby pokrywały one różne aspekty oceny modeli. MSE pozwala na ocenę jak dobrze model przewiduje wartości, MAPE pozwala na ocenę jak dobrze model przewiduje wartości w procentach, a R2 Score pozwala na ocenę jak dobrze model przewiduje wartości w porównaniu do średniej wartości.
+Nie ulega jednak wąptliwości że najlepszym wyborem jest MAPE, który najlepiej nadaje się do predykcji dotyczących populacji\cite{dop}, a więc jest najbardziej adekwatny do naszego problemu.
 \section{Analiza modeli}
 \subsection*{Dla podziału 80/20}
 Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-2008, a testowany będzie na danych z lat 2009-2019.
@@ -281,13 +284,58 @@ Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-200
         \begin{tabular}{|l|l|l|l|}
         \hline
         Model & MSE & MAPE & R2 Score \\ \hline
-        Linear Regression & 1.07e+13 & 0.03 & 0.99 \\ \hline
-        Ridge Regression & 1.07e+13 & 0.03 & 0.99 \\ \hline
-        Lasso Regression & 1.07e+13 & 0.03 & 0.99 \\ \hline
-        Elastic Net & 1.07e+13 & 0.03 & 0.99 \\ \hline
-        Bayesian Ridge & 1.07e+13 & 0.03 & 0.99 \\ \hline
+        Linear Regression & 3.04e+11 & 0.012 & -84.972 \\ \hline
+        Ridge Regression & 6.00e+10 & 0.006 & -15.926 \\ \hline
+        Lasso Regression & 3.04e+11 & 0.011 & -84.952 \\ \hline
+        Elastic Net & 2.33e+11 & 0.012 & -64.851 \\ \hline
+        Bayesian Ridge & 3.35e+12 & 0.048 & -946.190 \\ \hline
         \end{tabular}
         \caption{Wyniki dla podziału 80/20}
+        \end{table}
+\subsection*{Dla podziału 60/40}
+Podział 60/40 oznacza to że model uczyć będzie się na danych z lat 1960-1995, a testowany będzie na danych z lat 1996-2019.
+\subsubsection*{Regresja liniowa}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/linear996.png}
+        \caption{Regresja liniowa}
+\end{figure}
+\subsubsection*{Regresja Ridge}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/ridge996.png}
+        \caption{Regresja Ridge}
+\end{figure}
+\subsubsection*{Regresja Lasso}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/lasso996.png}
+        \caption{Regresja Lasso}
+\end{figure}
+\subsubsection*{Regresja Elastic Net}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/elastic_net996.png}
+        \caption{Regresja Elastic Net}
+\end{figure}
+\subsubsection*{Regresja Bayesian Ridge}
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/bayesian_ridge996.png}
+        \caption{Regresja Bayesian Ridge}
+\end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Linear Regression & 1.07e+11 & 0.004 & -23.073 \\ \hline
+        Ridge Regression & 1.07e+11 & 0.004 & -23.073 \\ \hline
+        Lasso Regression & 1.07e+11 & 0.004 & -23.073 \\ \hline
+        Elastic Net & 1.07e+11 & 0.004 & -23.073 \\ \hline
+        Bayesian Ridge & 1.07e+11 & 0.004 & -23.073 \\ \hline
+        \end{tabular}
+        \caption{Wyniki dla podziału 60/40}
         \end{table}
 \bibliographystyle{plain}
 \bibliography{bibliografia}
