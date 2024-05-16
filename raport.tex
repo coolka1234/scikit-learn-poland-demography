@@ -53,7 +53,8 @@ Zbadane zaś zostaną następujące modele regresji:
 \end{itemize}
 \section{Zbiór danych i jego analiza}
 \subsection*{Opis zbioru danych}
-Zbiór danych zawiera informacje na temat historycznej liczby ludności, imigracji do kraju, wskazniku dzietnosci, oczekiwanej długości życia w momencie urodzenia na przestrzeni lat 1960-2023.
+Zbiór danych zawiera informacje na temat historycznej liczby ludności, imigracji do kraju, wskazniku dzietnosci, oczekiwanej
+długości życia w momencie urodzenia na przestrzeni lat 1960-2023.
 Dane zostały pobrane z serwisu internetowego World Bank\cite{wbd} Dane dotyczą około 260 krajów. 
 Dodatkowo informacje na temat urbanizacji
 zostały pobrane z serwisu internetowego Zintegrowana Platforma Edukacyjna Ministerstwa Edukacji Narodowej\cite{zpe}, a wskaźnik zmiany populacji na przestrzeni ostatnich 5 lat został obliczony na podstawie danych historycznych.
@@ -95,7 +96,7 @@ Do analizy eksploracyjnej danych wykorzystano bibliotekę pandas-profiling\cite{
         \begin{tabular}{|l|l|l|}
         \hline
         Minimum & Maximum & Mediana \\ \hline
-        0 & 0 & 0 \\ \hline
+        619403 & 2424881 & 1095161 \\ \hline
         \end{tabular}
         \caption{Statystyki imigracji do Polski}
         \end{table}
@@ -115,7 +116,7 @@ Do analizy eksploracyjnej danych wykorzystano bibliotekę pandas-profiling\cite{
         \begin{tabular}{|l|l|l|}
         \hline
         Minimum & Maximum & Mediana \\ \hline
-        1.4 & 1.6 & 1.5 \\ \hline
+        1.22 & 2.98 & 2.06 \\ \hline
         \end{tabular}
         \caption{Statystyki współczynnika dzietności}
         \end{table}
@@ -135,7 +136,7 @@ Do analizy eksploracyjnej danych wykorzystano bibliotekę pandas-profiling\cite{
         \begin{tabular}{|l|l|l|}
         \hline
         Minimum & Maximum & Mediana \\ \hline
-        70.0 & 80.0 & 75.0 \\ \hline
+        67.42 & 77.9 & 71.1 \\ \hline
         \end{tabular}
         \caption{Statystyki oczekiwanej długości życia}
         \end{table}
@@ -155,7 +156,7 @@ Do analizy eksploracyjnej danych wykorzystano bibliotekę pandas-profiling\cite{
         \begin{tabular}{|l|l|l|}
         \hline
         Minimum & Maximum & Mediana \\ \hline
-        0.0 & 0.0 & 0.0 \\ \hline
+        47.66 & 61.18 & 59.27 \\ \hline
         \end{tabular}
         \caption{Statystyki urbanizacji}
         \end{table}
@@ -175,7 +176,7 @@ Do analizy eksploracyjnej danych wykorzystano bibliotekę pandas-profiling\cite{
         \begin{tabular}{|l|l|l|}
         \hline
         Minimum & Maximum & Mediana \\ \hline
-        -0.0001 & 0.0001 & 0.0 \\ \hline
+        -3.03 & 6.09 & 0.98 \\ \hline
         \end{tabular}
         \caption{Statystyki wskaźnika zmiany populacji}
         \end{table}
