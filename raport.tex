@@ -255,30 +255,76 @@ Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-200
         \includegraphics[width=0.8\textwidth]{images/linear.png}
         \caption{Regresja liniowa}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Linear Regression & 3.04e+11 & 0.012 & -84.972 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji liniowej i podziału 80/20}
+        \end{table}
 \subsubsection*{Regresja Ridge}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/ridge.png}
         \caption{Regresja Ridge}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Lasso Regression & 6.00e+10 & 0.006 & -15.926 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Ridge i podziału 80/20}
+        \end{table}
 \subsubsection*{Regresja Lasso}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/lasso.png}
         \caption{Regresja Lasso}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Lasso Regression & 3.04e+11 & 0.011 & -84.952 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Lasso i podziału 80/20}
+        \end{table}
 \subsubsection*{Regresja Elastic Net}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/elastic_net.png}
         \caption{Regresja Elastic Net}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Elastic Net & 2.33e+11 & 0.012 & -64.851 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Elastic Net i podziału 80/20}
+\end{table}
 \subsubsection*{Regresja Bayesian Ridge}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/bayesian_ridge.png}
         \caption{Regresja Bayesian Ridge}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Bayesian Ridge Regression & 3.35e+12 & 0.048 & -946.190 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Bayesian Ridge i podziału 80/20}
+        \end{table}
+\subsubsection*{Podsumowanie dla podziału 80/20}
 \begin{table}[H]
         \centering
         \begin{tabular}{|l|l|l|l|}
@@ -291,7 +337,16 @@ Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-200
         Bayesian Ridge & 3.35e+12 & 0.048 & -946.190 \\ \hline
         \end{tabular}
         \caption{Wyniki dla podziału 80/20}
-        \end{table}
+\end{table}
+Metryka MSE jest bardzo wysoka, co jest spowodowane tym że dane do przewidzenia są bardzo wysokie (rzędzu $10^7$), co sprawia że błędy są również bardzo wysokie.
+Dodatkowo, model otrzymał niewielkie ilości danych szkoleniowych, co sprawia że jest on niewystarczająco dopasowany do danych testowych.
+MAPE, która jest główną metryką, daje jednak nadzieje na to że model może być użyteczny, ponieważ wartość błędu procentowego dla Ridge wynosi zaledwie 0.006.
+\begin{itemize}
+        \item Najlepszym modelem okazała się regresja Ridge, która osiągnęła najniższe wartości MSE, MAPE oraz najwyższe R2 Score.
+        \item Najgorszym modelem okazała się regresja Bayesian Ridge, która osiągnęła najwyższe wartości MSE, MAPE oraz najniższe R2 Score.
+        \item Regresja Lasso oraz regresja liniowa osiągnęły bardzo zbliżone wyniki, co sprawia że nie można jednoznacznie stwierdzić która z nich jest lepsza.
+        \item Regresja Elastic Net osiągnęła wyniki zbliżone, choć gorsze, od regresji Ridge, ale lepsze niż Lasso i Liniowa, co sprawia że również jest ona dobrym modelem.
+\end{itemize}
 \subsection*{Dla podziału 60/40}
 Podział 60/40 oznacza to że model uczyć będzie się na danych z lat 1960-1995, a testowany będzie na danych z lat 1996-2019.
 \subsubsection*{Regresja liniowa}
@@ -300,24 +355,60 @@ Podział 60/40 oznacza to że model uczyć będzie się na danych z lat 1960-199
         \includegraphics[width=0.8\textwidth]{images/linear996.png}
         \caption{Regresja liniowa}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Linear Regression & 4.31e+12 & 0.051 & -84.631 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji liniowej i podziału 60/40}
+        \end{table}
 \subsubsection*{Regresja Ridge}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/ridge996.png}
         \caption{Regresja Ridge}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Ridge Regression & 4.73e+12 & 0.053 & -92.887 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Ridge i podziału 60/40}
+        \end{table}
 \subsubsection*{Regresja Lasso}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/lasso996.png}
         \caption{Regresja Lasso}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Lasso Regression & 4.31e+12 & 0.050 & -84.638 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Lasso i podziału 60/40}
+\end{table}
 \subsubsection*{Regresja Elastic Net}
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/elastic_net996.png}
         \caption{Regresja Elastic Net}
 \end{figure}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Elastic Net & 4.99e+12 & 0.054 & -98.200 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Elastic Net i podziału 60/40}
+\end{table}
 \subsubsection*{Regresja Bayesian Ridge}
 \begin{figure}[H]
         \centering
@@ -329,14 +420,25 @@ Podział 60/40 oznacza to że model uczyć będzie się na danych z lat 1960-199
         \begin{tabular}{|l|l|l|l|}
         \hline
         Model & MSE & MAPE & R2 Score \\ \hline
-        Linear Regression & 1.07e+11 & 0.004 & -23.073 \\ \hline
-        Ridge Regression & 1.07e+11 & 0.004 & -23.073 \\ \hline
-        Lasso Regression & 1.07e+11 & 0.004 & -23.073 \\ \hline
-        Elastic Net & 1.07e+11 & 0.004 & -23.073 \\ \hline
-        Bayesian Ridge & 1.07e+11 & 0.004 & -23.073 \\ \hline
+        Bayesian Ridge & 6.55e+12 & 0.063 & -129.007 \\ \hline
+        \end{tabular}
+        \caption{Metryki dla regresji Bayesian Ridge i podziału 60/40}
+\end{table}
+\subsubsection*{Podsumowanie dla podziału 60/40}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+        \hline
+        Model & MSE & MAPE & R2 Score \\ \hline
+        Linear Regression & 4.31e+12 & 0.051 & -84.631 \\ \hline
+        Ridge Regression & 4.73e+12 & 0.053 & -92.887 \\ \hline
+        Lasso Regression & 4.31e+12 & 0.050 & -84.638 \\ \hline
+        Elastic Net & 4.99e+12 & 0.054 & -98.200 \\ \hline
+        Bayesian Ridge & 6.55e+12 & 0.063 & -129.007 \\ \hline
         \end{tabular}
         \caption{Wyniki dla podziału 60/40}
         \end{table}
+Wyniki dla podziału 60/40 są identyczne jak dla podziału 80/20, co jest zaskakujące, ponieważ można by się spodziewać że większa ilość danych szkoleniowych pozwoli na lepsze wyniki.
 \bibliographystyle{plain}
 \bibliography{bibliografia}
 \end{document}
