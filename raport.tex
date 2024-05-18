@@ -5,6 +5,7 @@
 \usepackage{multicol}
 \usepackage{hyperref}
 \usepackage{float}
+\usepackage[polish]{babel}
 % Margins
 \topmargin=-0.5in
 \evensidemargin=0in
@@ -30,7 +31,7 @@
 
 
 \section{Wstęp}
-Problemem projektu jest analiza możliwości przewidywania liczby ludności w Polsce na podstawie zmiennych demograficznych, przy użyciu modeli regresju liniowej. W tym celu wykorzystane zostaną dane historyczne dotyczące populacji, oraz innych czynników wpływających na liczebność obywateli kraju.
+Problemem projektu jest analiza możliwości przewidywania liczby ludności w Polsce na podstawie zmiennych demograficznych, przy użyciu modeli regresji liniowej.
 Przedstawiona analiza ma na celu rozstrzygnięcie czy model regresji liniowej jest odpowiedni do przewidywania liczby ludności w Polsce, oraz jakie modele sprawdzają się do tego najlepiej.
 Analizie zostaną poddane następujące czynniki:
 \begin{itemize}
@@ -291,8 +292,8 @@ R2 Score jest metryką, która mierzy jak dobrze model przewiduje dane w porówn
 R2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
 \end{equation}
 \subsection{Analiza metryk}
-Metryki zostały wybrane tak, aby pokrywały one różne aspekty oceny modeli. MSE pozwala na ocenę jak dobrze model przewiduje wartości w skaLI, MAPE pozwala na ocenę jak dobrze model przewiduje wartości w procentach, a R2 Score pozwala na ocenę jak dobrze model przewiduje wartości w porównaniu do próby.
-Nie ulega jednak wąptliwości że najważniejszą metryką jest MAPE, która najlepiej nadaje się do predykcji dotyczących populacji\cite{dop}, a więc jest najbardziej adekwatna do naszego problemu, i to przedewszystikm przez jej pryzmant będziemy oceniac modele.
+Metryki zostały wybrane tak, aby pokrywały one różne aspekty oceny modeli. MSE pozwala na ocenę jak dobrze model przewiduje wartości w skali, MAPE pozwala na ocenę jak dobrze model przewiduje wartości w procentach, a R2 Score pozwala na ocenę jak dobrze model przewiduje wartości w porównaniu do próby.
+Nie ulega jednak wąptliwości że najważniejszą metryką jest MAPE, która najlepiej nadaje się do predykcji dotyczących populacji\cite{dop}, a więc jest najbardziej adekwatna do naszego problemu, i to przedewszystikm przez jej pryzmant będziemy oceniać modele.
 \section{Analiza modeli}
 \subsection{Dla podziału 80/20}
 Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-2007, a testowany będzie na danych z lat 2008-2019.
@@ -498,6 +499,18 @@ Oczywiście, jak pokazał przykład pandemii COVID-19, zdarzenia losowe mogą zn
 i może być użyty do analizy trendów demograficznych w przyszłości, zwłaszcza w sytuacjach stablilnych, gdzie nie występują znaczące zmiany w liczbie ludności.\par
 Ciekawą i wartą uwagi obserwacją, bez wątpienia jest fakt, że najlepsze modele regresji liniowej, przewidywały populację niższą niż rzeczywista.
 W istocie może być to wytłumaczone faktem, że dane imigracyjne są prawdopodobnie zaniżone, co przełożyło się na fakt że modele przewidywały zaniżoną liczbę mieszkańców Polski.
-\bibliographystyle{plain}
+\section*{Dalsza praca}
+Przedstawione modelowanie jest nadal dalekie od ideału. W przyszłości warto byłoby:
+\begin{itemize}
+\item Zbadać wpływ innych zmiennych na liczebność populacji, takich jak PKB, czy stopa bezrobocia.
+\item Zbadać wpływ innych modeli regresji, takich jak regresja wielomianowa, czy regresja drzew decyzyjnych.
+\item Zbadać wpływ innych podziałów danych, takich jak 70/30, czy 90/10.
+\item Zbadać wpływ innych metryk, takich jak RMSE, czy RMSLE.
+\item Zbadać wpływ innych metod normalizacji danych, takich jak min-max, czy z-score.
+\item Zbadać wpływ innych metod interpolacji danych, takich jak interpolacja wielomianowa, czy interpolacja sześcienna.
+\end{itemize}
+Pomimo jednak tych niedoskonałości, projekt ten udowadnia że modele regresji liniowej są bardzo dobrym narzędziem do przewidywania liczby ludności w Polsce, i mogą być użyte do analizy trendów demograficznych w przyszłości, ze względu
+na satysfakcjonujący wynik metryki MAPE.
+\bibliographystyle{unsrt}
 \bibliography{bibliografia}
 \end{document}

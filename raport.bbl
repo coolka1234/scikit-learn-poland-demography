@@ -1,17 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{gf24}
-{Geografia24, Urbanizacja w Polsce i w Europie}.
-\newblock \url{https://geografia24.pl/urbanizacja-w-polsce-i-w-europie/}.
-
-\bibitem{rg}
-{Research Gate, Interpretation of typical MAPE values}.
-\newblock \url{https://www.researchgate.net/figure/nterpretation-of-typical-MAPE-values_tbl1_257812432}.
-
-\bibitem{wpd}
-{WebPlotDigitizer}.
-\newblock \url{https://automeris.io/}.
-
 \bibitem{wbd}
 {World Bank Data} poland.
 \newblock \url{https://www.worldbank.org/pl/country/poland}.
@@ -19,6 +7,14 @@
 \bibitem{zpe}
 {Zintegrowana Platforma Edukacyjna Ministerstwa Edukacji Narodowej} urbanizacja w polsce.
 \newblock \url{https://zpe.gov.pl/a/zroznicowanie-poziomu-urbanizacji-w-polsce/D19MUchJD}.
+
+\bibitem{wpd}
+{WebPlotDigitizer}.
+\newblock \url{https://automeris.io/}.
+
+\bibitem{gf24}
+{Geografia24, Urbanizacja w Polsce i w Europie}.
+\newblock \url{https://geografia24.pl/urbanizacja-w-polsce-i-w-europie/}.
 
 \bibitem{pp}
 Fabian Clemente.
@@ -28,5 +24,9 @@ Fabian Clemente.
 \bibitem{dop}
 Aybeniz S.~Aliyev Makrufa Sh.~Hajirahimov.
 \newblock Development of a prediction model on demographic indicators based on machine learning methods: Azerbaijan example.
+
+\bibitem{rg}
+{Research Gate, Interpretation of typical MAPE values}.
+\newblock \url{https://www.researchgate.net/figure/nterpretation-of-typical-MAPE-values_tbl1_257812432}.
 
 \end{thebibliography}

@@ -1,54 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2024)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: raport.aux
-The style file: plain.bst
+The style file: unsrt.bst
 Database file #1: bibliografia.bib
-Warning--to sort, need author or key in wbd
-Warning--to sort, need author or key in zpe
-Warning--to sort, need author or key in wpd
-Warning--to sort, need author or key in gf24
-Warning--to sort, need author or key in rg
 Warning--empty journal in dop
 Warning--empty year in dop
 You've used 7 entries,
-            2118 wiz_defined-function locations,
-            519 strings with 4793 characters,
-and the built_in function-call counts, 1218 in all, are:
-= -- 111
-> -- 19
+            1791 wiz_defined-function locations,
+            467 strings with 4318 characters,
+and the built_in function-call counts, 769 in all, are:
+= -- 58
+> -- 13
 < -- 0
-+ -- 11
-- -- 4
-* -- 43
-:= -- 164
++ -- 9
+- -- 2
+* -- 8
+:= -- 94
 add.period$ -- 15
 call.type$ -- 7
-change.case$ -- 23
+change.case$ -- 7
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 52
-empty$ -- 155
-format.name$ -- 4
-if$ -- 284
+cite$ -- 9
+duplicate$ -- 38
+empty$ -- 123
+format.name$ -- 2
+if$ -- 191
 int.to.chr$ -- 0
 int.to.str$ -- 7
 missing$ -- 1
 newline$ -- 32
-num.names$ -- 4
-pop$ -- 56
+num.names$ -- 2
+pop$ -- 41
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 0
 quote$ -- 0
-skip$ -- 54
+skip$ -- 38
 stack$ -- 0
-substring$ -- 35
+substring$ -- 0
 swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 7
-while$ -- 4
+type$ -- 0
+warning$ -- 2
+while$ -- 2
 width$ -- 8
 write$ -- 53
-(There were 7 warnings)
+(There were 2 warnings)
