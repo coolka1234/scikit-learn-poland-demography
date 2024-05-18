@@ -6,32 +6,32 @@
 \contentsline {subsubsection}{\numberline {2.3.1}Pozyskanie danych}{4}{subsubsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.4}Dane po obróbce}{4}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Analiza danych}{5}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Populacja w Polsce}{5}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Imigracja do Polski}{6}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Współczynnik dzietności}{7}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Oczekiwana długość życia}{8}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Urbanizacja}{9}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Wskaźnik zmiany populacji}{10}{subsection.2.11}%
-\contentsline {subsection}{\numberline {2.12}Korelacja}{11}{subsection.2.12}%
+\contentsline {subsection}{\numberline {2.6}Populacja w Polsce}{6}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Imigracja do Polski}{7}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Współczynnik dzietności}{8}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Oczekiwana długość życia}{9}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Urbanizacja}{10}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Wskaźnik zmiany populacji}{11}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Korelacja}{12}{subsection.2.12}%
 \contentsline {subsection}{\numberline {2.13}Eliminacja danych odstających}{12}{subsection.2.13}%
-\contentsline {section}{\numberline {3}Dobór metryk oceny}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Mean Squared Error}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Mean Absolute Percentage Error}{12}{subsection.3.2}%
+\contentsline {section}{\numberline {3}Dobór metryk oceny}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Mean Squared Error}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Mean Absolute Percentage Error}{13}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}R2 Score}{13}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Analiza metryk}{13}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Analiza modeli}{13}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Dla podziału 80/20}{13}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Regresja liniowa}{13}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Regresja Ridge}{14}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Regresja Lasso}{15}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Regresja Elastic Net}{16}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Regresja Bayesian Ridge}{17}{subsubsection.4.1.5}%
-\contentsline {subsubsection}{\numberline {4.1.6}Podsumowanie dla podziału 80/20}{17}{subsubsection.4.1.6}%
-\contentsline {subsection}{\numberline {4.2}Dla podziału 60/40}{18}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Regresja liniowa}{18}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Regresja Ridge}{19}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Regresja Lasso}{19}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Regresja Elastic Net}{20}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Regresja Bayesian Ridge}{21}{subsubsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.6}Podsumowanie dla podziału 60/40}{21}{subsubsection.4.2.6}%
-\contentsline {section}{\numberline {5}Wnioski}{21}{section.5}%
+\contentsline {subsubsection}{\numberline {4.1.1}Regresja liniowa}{14}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Regresja Ridge}{15}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Regresja Lasso}{16}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Regresja Elastic Net}{17}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Regresja Bayesian Ridge}{18}{subsubsection.4.1.5}%
+\contentsline {subsubsection}{\numberline {4.1.6}Podsumowanie dla podziału 80/20}{18}{subsubsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.2}Dla podziału 60/40}{19}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Regresja liniowa}{19}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Regresja Ridge}{20}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Regresja Lasso}{20}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Regresja Elastic Net}{21}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Regresja Bayesian Ridge}{22}{subsubsection.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6}Podsumowanie dla podziału 60/40}{22}{subsubsection.4.2.6}%
+\contentsline {section}{\numberline {5}Wnioski}{22}{section.5}%

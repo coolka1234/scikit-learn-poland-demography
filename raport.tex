@@ -30,7 +30,7 @@
 
 
 \section{Wstęp}
-Problemem projektu jest analiza możliwości modelów regresji liniowej do przewidywania liczby ludności w Polsce. W tym celu wykorzystane zostaną dane historyczne dotyczące demografi, oraz innych czynników wpływających na liczebność populacji.
+Problemem projektu jest analiza możliwości przewidywania liczby ludności w Polsce na podstawie zmiennych demograficznych, przy użyciu modeli regresju liniowej. W tym celu wykorzystane zostaną dane historyczne dotyczące populacji, oraz innych czynników wpływających na liczebność obywateli kraju.
 Przedstawiona analiza ma na celu rozstrzygnięcie czy model regresji liniowej jest odpowiedni do przewidywania liczby ludności w Polsce, oraz jakie modele sprawdzają się do tego najlepiej.
 Analizie zostaną poddane następujące czynniki:
 \begin{itemize}
@@ -41,7 +41,7 @@ Analizie zostaną poddane następujące czynniki:
 \item Urbanizacja
 \item Wskaźnik zmiany populacji na przestrzeni ostatnich 5 lat
 \end{itemize}
-Zbadane zaś zostaną następujące modele regresji:
+Zbadane zaś zostaną następujące modele regresji liniowej:
 \begin{itemize}
 \item Regresja liniowa
 \item Regresja typu Ridge
@@ -51,8 +51,8 @@ Zbadane zaś zostaną następujące modele regresji:
 \end{itemize}
 \section{Zbiór danych i jego analiza}
 \subsection{Opis zbioru danych}
-Zbiór danych zawiera informacje na temat historycznej liczby ludności, imigracji do kraju, wskazniku dzietnosci, oczekiwanej
-długości życia w momencie urodzenia na przestrzeni lat 1960-2023.
+Zbiór danych zawiera informacje na temat historycznej liczby ludności, imigracji do kraju, wskaźniku dzietności i oczekiwanej
+długości życia w momencie urodzenia na przestrzeni lat 1960-2023.\par
 Dane zostały pobrane z serwisu internetowego World Bank\cite{wbd} Dane dotyczą około 260 krajów. 
 Dodatkowo informacje na temat urbanizacji
 zostały pobrane z serwisu internetowego Zintegrowana Platforma Edukacyjna Ministerstwa Edukacji Narodowej\cite{zpe}, a wskaźnik zmiany populacji na przestrzeni ostatnich 5 lat został obliczony na podstawie danych historycznych.
@@ -68,7 +68,7 @@ zostały pobrane z serwisu internetowego Zintegrowana Platforma Edukacyjna Minis
             "Africa Western and Central" & "AFW" & "Fertility rate, total (births per woman)" & "SP.DYN.TFRT.IN" & "6.45844789624312" & "6.47151755185967" & ... \\ \hline
                 ... \\
         \end{tabular}}
-        \caption{Wycinek danych z zbioru dzietności na kobietę}
+        \caption{Wycinek danych ze zbioru danych nt. dzietności na kobietę}
     \end{table}
 \begin{table}[!ht]
 \centering
@@ -81,19 +81,19 @@ zostały pobrane z serwisu internetowego Zintegrowana Platforma Edukacyjna Minis
         "Africa Western and Central" & "AFW" & "Population, total" & "SP.POP.TOTL" & "97256290" & "99314028" & ...\\ \hline
         ... \\
 \end{tabular}}
-\caption{Wycinek danych z zbioru liczby ludności}
+\caption{Wycinek danych ze zbioru danych nt. liczby ludności}
 \end{table}
 \subsection{Obróbka danych}
 \subsubsection{Pozyskanie danych}
-Najważniejszym krokiem w obróbce danych było wyizolowanie danych dotyczących Polski, oraz usunięcie kolumn, które nie były istotne dla analizy takicj jak kod kraju, nazwa wskażnika i tym podobne.
-Dodatkowo, z racji tego że dane dotyczące imigracji rejestrowane co pięć lat, skorzystano z interpolacji liniowej, aby uzupełnić brakujące dane.
+Najważniejszym krokiem w obróbce danych było wyizolowanie danych dotyczących Polski, oraz usunięcie kolumn, które nie były istotne dla analizy takich jak kod kraju, nazwa wskaźnika i kod wskaźnika.\par
+Dodatkowo, z racji tego że dane dotyczące imigracji były rejestrowane jedynie co pięć lat, skorzystano z interpolacji liniowej, aby uzupełnić brakujące dane.\par
 Największe wyzwanie pojawiło się z danymi dotyczącymi urbanizacji. Jedyne z zaufanego oficjalnego źródła były w formie obrazka .jpg.
 Aby więc uzyskać dane, i móc zamienić je w data frame, użyto następujących kroków:
 \begin{itemize}
-\item Scraping obrazka za pomocą skryptu pythonowego
+\item Scraping obrazka za pomocą skryptu pythonowego scrape{\_}image.py 
 \item Następnie przekazanie zescrapowanego obrazka do zewnętrznego programu WebPlotDigitizer\cite{wpd}
-\item Dalej, z racji niedoskonałości otrzymanego wyniku (m.in. potraktowanie lat jako liczb rzeczywistych, a nie całkowitych), dane zostały poprawione za pomocą kolejnego skryptu napisanego w pythonie.
-\item Finalnie, ponieważ dane sięgały jedynie 2012 roku, dodano za pomocą skryptu dane z lat 2013-2022 korzystając ze witryny Gegrafia24.pl\cite{gf24}. 
+\item Dalej, z racji niedoskonałości otrzymanego wyniku (m.in. potraktowanie lat jako liczb rzeczywistych, a nie całkowitych), dane zostały poprawione za pomocą kolejnego skryptu python{\_}fitter.py napisanego w pythonie.
+\item Finalnie, ponieważ dane sięgały jedynie 2012 roku, dodano za pomocą skryptu python{\_}fitter.py dane z lat 2013-2022 korzystając z witryny Gegrafia24.pl\cite{gf24}. 
 \end{itemize}
 \begin{figure}[H]
         \centering
@@ -105,8 +105,22 @@ Po wstępnej obróbce danych, tak prezentują się zmienne demograficzne po ich 
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/normalized_all_vars.png}
-        \caption{Dane po obróbce}
+        \caption{Znormalizowane dane po obróbce}
 \end{figure}
+\begin{table}[!ht]
+        \centering
+        \resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|l|l|l|l|}
+        \hline
+            Year & Population & International Migrant Stock & Fertility Rate (per women) & Life Expentancy at Birth (years) & Urbanization & Population Change (\%) \\ \hline
+            1987 & 37668045.0 & 1243055.6 & 2.15 & 70.8975609756098 & 60.20358735274085 & 3.967830291847352 \\ \hline
+            1988 & 37824487.0 & 1204627.4 & 2.13 & 71.3317073170732 & 60.74798188743977 & 3.425258603566994 \\ \hline
+            1989 & 37961529.0 & 1166199.2 & 2.08 & 71.0439024390244 & 60.99298968660394 & 2.865248104724527 \\ \hline
+            1990 & 38110782.0 & 1127771.0 & 2.06 & 70.890243902439 & 61.02281597125872 & 2.443147706090709 \\ \hline
+            1991 & 38246193.0 & 1095161.8 & 2.07 & 70.5878048780488 & 61.02661990321469 & 2.109332256232954 \\ \hline
+            1992 & 38363667.0 & 1062552.6 & 1.95 & 71.090243902439 & 61.03232580114864 & 1.846716494046885 \\ \hline
+        \end{tabular}}
+        \caption{Wycinek finalnych danych dla lat 1987-1992}
+    \end{table}
 \subsection{Analiza danych}
 Do analizy eksploracyjnej danych wykorzystano bibliotekę pandas-profiling\cite{pp}
 \subsection{Populacja w Polsce}
@@ -277,11 +291,11 @@ R2 Score jest metryką, która mierzy jak dobrze model przewiduje dane w porówn
 R2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
 \end{equation}
 \subsection{Analiza metryk}
-Metryki zostały wybrane tak, aby pokrywały one różne aspekty oceny modeli. MSE pozwala na ocenę jak dobrze model przewiduje wartości, MAPE pozwala na ocenę jak dobrze model przewiduje wartości w procentach, a R2 Score pozwala na ocenę jak dobrze model przewiduje wartości w porównaniu do średniej wartości.
-Nie ulega jednak wąptliwości że najlepszym wyborem jest MAPE, który najlepiej nadaje się do predykcji dotyczących populacji\cite{dop}, a więc jest najbardziej adekwatny do naszego problemu.
+Metryki zostały wybrane tak, aby pokrywały one różne aspekty oceny modeli. MSE pozwala na ocenę jak dobrze model przewiduje wartości w skaLI, MAPE pozwala na ocenę jak dobrze model przewiduje wartości w procentach, a R2 Score pozwala na ocenę jak dobrze model przewiduje wartości w porównaniu do próby.
+Nie ulega jednak wąptliwości że najważniejszą metryką jest MAPE, która najlepiej nadaje się do predykcji dotyczących populacji\cite{dop}, a więc jest najbardziej adekwatna do naszego problemu, i to przedewszystikm przez jej pryzmant będziemy oceniac modele.
 \section{Analiza modeli}
 \subsection{Dla podziału 80/20}
-Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-2008, a testowany będzie na danych z lat 2009-2019.
+Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-2007, a testowany będzie na danych z lat 2008-2019.
 \subsubsection{Regresja liniowa}
 \begin{figure}[H]
         \centering
@@ -372,13 +386,13 @@ Podział 80/20 oznacza to że model uczyć będzie się na danych z lat 1960-200
         \caption{Wyniki dla podziału 80/20}
 \end{table}
 Metryka MSE jest bardzo wysoka, co jest spowodowane tym że dane do przewidzenia są bardzo wysokie (rzędzu $10^7$), co sprawia że błędy są również bardzo wysokie.
-Dodatkowo, model otrzymał niewielkie ilości danych szkoleniowych, co sprawia że jest on niewystarczająco dopasowany do danych testowych.
+Dodatkowo, modele otrzymały niewielkie ilości danych szkoleniowych, co sprawia że są w pewnym stopniu niewystarczająco dopasowane do danych testowych.
 MAPE, która jest główną metryką, daje jednak nadzieje na to że model może być użyteczny, ponieważ wartość błędu procentowego dla Ridge wynosi zaledwie 0.006.
 \begin{itemize}
         \item Najlepszym modelem okazała się regresja Ridge, która osiągnęła najniższe wartości MSE, MAPE oraz najwyższe R2 Score.
         \item Najgorszym modelem okazała się regresja Bayesian Ridge, która osiągnęła najwyższe wartości MSE, MAPE oraz niespotykanie niski R2 Score.
         \item Regresja Lasso oraz regresja liniowa osiągnęły bardzo zbliżone wyniki, co sprawia że nie można jednoznacznie stwierdzić która z nich jest lepsza.
-        \item Regresja Elastic Net osiągnęła wyniki zbliżone, choć gorsze, od regresji Ridge, ale lepsze R2 i MSE niż Lasso i Liniowa, co sprawia że również jest ona dobrym modelem.
+        \item Regresja Elastic Net osiągnęła wyniki zbliżone, choć gorsze, od regresji Ridge, ale lepsze R2 i MSE niż Lasso i Liniowa.
 \end{itemize}
 \subsection{Dla podziału 60/40}
 Podział 60/40 oznacza to że model uczyć będzie się na danych z lat 1960-1995, a testowany będzie na danych z lat 1996-2019.
@@ -471,19 +485,19 @@ Podział 60/40 oznacza to że model uczyć będzie się na danych z lat 1960-199
         \end{tabular}
         \caption{Wyniki dla podziału 60/40}
         \end{table}
-Jak widać, wyniki dla podziału 60/40 są znacznie gorsze niż dla podziału 80/20. Wynika to z faktu że model otrzymał mniej danych szkoleniowych, co sprawia że jest on niewystarczająco dopasowany do danych testowych.
+Jak widać, wyniki dla podziału 60/40 są znacznie gorsze niż dla podziału 80/20. Prawdopodobnie wynika to z faktu że model otrzymał mniej danych szkoleniowych, co powoduje niewystarczające dopasowanie do danych testowych.
 Split 80/20 okazał się zdecydowanie lepszy, co sprawia że jest on bardziej odpowiedni do analizy, i zapewnia dobry bilans między szkoleniem i testowaniem modelu.
 \section{Wnioski}
-Po przeanalizowaniu wielu różnych modeli regresji, na róznych podziałach danych, można stwierdzić że regresja Ridge jest najlepszym modelem do przewidywania liczby ludności w Polsce.
+Po przeanalizowaniu wielu różnych modeli regresji, na róznych podziałach danych, można stwierdzić że regresja Ridge jest najlepszym modelem do przewidywania liczby ludności w Polsce w zaprezentowanej sytuacji.
 Model ten osiągnął najniższe wartości MSE, MAPE oraz najwyższe R2 Score, co sprawia że jest on najbardziej adekwatny do naszego problemu.
 Warto szczególnie zwrócić uwagę na wartoścć MAPE, która wynosi zaledwie 0.006, co oznacza że model przewiduje wartości zaledwie o 0.6\% odchylające się od wartości rzeczywistych.
 Kategoryzuje to ten model w kategorię bardzo dobrych\cite{rg}, co sprawia że jest on najbardziej odpowiedni do przewidywania liczby ludności w Polsce.\par
 Dodatkowo, projekt ten udowania że zmienne demograficzne, takie jak dzietność, oczekiwana długość życia, urbanizacja, oraz imigracja, mają duży wpływ na liczebność populacji,
-do tego stopnia, że na ich podstawie można z dużą dokładnością przewidzieć liczebność populacji w przyszłości.
+do tego stopnia, że na ich podstawie można z dużą dokładnością przewidzieć liczebność populacji w przyszłości.\par
 Oczywiście, jak pokazał przykład pandemii COVID-19, zdarzenia losowe mogą znacząco wpłynąć na liczebność populacji, co sprawia że model ten nie jest idealny, ale nadal jest on bardzo dobrym narzędziem do przewidywania liczby ludności w Polsce,
-i może być użyty do analizy trendów demograficznych w przyszłości, zwłaszcza w sytuacjach stablilnych, gdzie nie występują znaczące zmiany w populacji.\par
+i może być użyty do analizy trendów demograficznych w przyszłości, zwłaszcza w sytuacjach stablilnych, gdzie nie występują znaczące zmiany w liczbie ludności.\par
 Ciekawą i wartą uwagi obserwacją, bez wątpienia jest fakt, że najlepsze modele regresji liniowej, przewidywały populację niższą niż rzeczywista.
-W istocie może być to wytłumaczone faktem, że dane imigracyjne mogły być zaniżone, co przełożyło się na fakt że modele przewidywały zaniżoną populację.
+W istocie może być to wytłumaczone faktem, że dane imigracyjne są prawdopodobnie zaniżone, co przełożyło się na fakt że modele przewidywały zaniżoną liczbę mieszkańców Polski.
 \bibliographystyle{plain}
 \bibliography{bibliografia}
 \end{document}
