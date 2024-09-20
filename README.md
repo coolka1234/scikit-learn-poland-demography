@@ -3,4 +3,4 @@
 * analysis of available data and practicing data scraping - fertlity and urbanization rate, life expentancy, immigration rate
 * analysing of trends and correlations between data
 * predicting future values for population changes 
-* writing extensive raport in LaTeX with fitting conlusion
+* writing extensive raport in LaTeX with fitting conlusion (raport.pdf)
